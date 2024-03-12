@@ -114,7 +114,7 @@ public class MenuSystem implements IMenu {
         System.out.println();
         System.out.println("Horários de um aluno\n\n");
 
-        for (Horario horario : aluno.obterHorario()) {
+        for (Horario horario : aluno.getHorario()) {
             System.out.printf("Horario: %s\n", horario);
         }
 

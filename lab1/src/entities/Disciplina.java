@@ -6,6 +6,10 @@ public class Disciplina {
     protected int horas;
 
     public Disciplina(String codigo, String nome, int horas) {
+
+        if (codigo == null || nome == null || horas <= 0)
+            throw new IllegalArgumentException("Nome ou codigo não pode ser nulos e hora > 0");
+
         this.codigo = codigo;
         this.nome = nome;
         this.horas = horas;

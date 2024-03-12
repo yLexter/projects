@@ -31,11 +31,10 @@ public class Turma extends Disciplina {
         ControleAcademico controleAcademico = Global.getControleAcademico();
 
         if (controleAcademico.verificarHorarioEmUso(novoHorario))
-            throw new Error("Horário em uso");
+            throw new IllegalArgumentException("Horário em uso");
 
         horarios.add(novoHorario);
     }
-
 
     public void adicionarAluno(Aluno novoAluno) {
 
@@ -46,10 +45,6 @@ public class Turma extends Disciplina {
 
         novoAluno.addDisciplina(id);
         alunos.add(novoAluno);
-    }
-
-    public int obterNumeroDeAlunos() {
-        return alunos.size();
     }
 
     public int getTotalDeAluno() {

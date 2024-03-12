@@ -4,25 +4,28 @@ import utils.Global;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class Aluno extends Funcionario {
-    private List<String> turmas;
+    private List<String> turmasId;
 
     public Aluno(String nome, String sobrenome) {
         super(nome, sobrenome);
-        this.turmas = new ArrayList<>();
+        this.turmasId = new ArrayList<>();
     }
 
     public void addDisciplina(String idTurma) {
-        turmas.add(idTurma);
+        turmasId.add(idTurma);
     }
 
     public List<Turma> getTurmas() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
 
-        return controleAcademico.obterTurmasDeUmAluno(turmas);
+        return controleAcademico.obterTurmasDeUmAluno(this);
     }
 
-    public List<Horario> obterHorario() {
+
+
+    public List<Horario> getHorario() {
         List<Horario> horarios = new ArrayList<>();
 
         for (Turma turma : getTurmas()) {
@@ -32,5 +35,8 @@ public class Aluno extends Funcionario {
         return horarios;
     }
 
-
+    public List<String> getTurmasId() {
+        return turmasId;
+    }
+    
 }

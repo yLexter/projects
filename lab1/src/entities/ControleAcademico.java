@@ -23,7 +23,9 @@ public class ControleAcademico {
                 .orElse(null);
     }
 
-    public List<Turma> obterTurmasDeUmAluno(List<String> turmasId) {
+    public List<Turma> obterTurmasDeUmAluno(Aluno aluno) {
+        List<String> turmasId = aluno.getTurmasId();
+
         return turmas
                 .stream()
                 .filter(turma -> turmasId
@@ -37,7 +39,7 @@ public class ControleAcademico {
         for (Turma turma : turmas) {
 
             for (Horario horario : turma.getHorarios()) {
-                if(novoHorario.equals(horario))
+                if (novoHorario.equals(horario))
                     return true;
             }
         }

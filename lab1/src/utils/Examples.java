@@ -61,15 +61,10 @@ public class Examples {
         p1.addTurma(obterTurmas().get(0));
         p1.addTurma(obterTurmas().get(1));
 
-
         professores.add(p1);
         professores.add(p2);
 
         return professores;
     }
-
-
-
-
 
 }
