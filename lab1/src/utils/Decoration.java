@@ -5,21 +5,16 @@ import java.util.List;
 
 public class Decoration {
 
-  /**
-     * Limpa a tela do console.
-     */
+  
     public static void clearScreen() {
         System.out.println("\n".repeat(50));
     }
 
-    /**
-     * Mostra uma mensagem na tela, envolta por uma moldura, e depois limpa a tela.
-     * @param message Mensagem a ser exibida.
-     */
+    
 
     public static String generateWelcomeHeader(String name) {
         int nameLength = name.length();
-        int horizontalPadding = 2; //
+        int horizontalPadding = 2; 
         int totalWidth = nameLength + horizontalPadding * 2;
 
         return "┌" + "─".repeat(totalWidth) + "┐" + "\n" +
@@ -45,10 +40,7 @@ public class Decoration {
         clearScreen();
     }
 
-   /**
-     * Pausa a execução do programa por um determinado número de segundos.
-     * @param seconds Número de segundos a pausar.
-     */
+   
     public static void sleep(Number seconds) {
         try {
            Thread.sleep(seconds.longValue() * 1000L);
