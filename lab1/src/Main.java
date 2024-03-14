@@ -1,5 +1,5 @@
 import entities.*;
-import menu.MenuSystem;
+import labs.Lab1;
 import utils.Examples;
 import utils.Global;
 
@@ -18,7 +18,7 @@ public class Main {
         controleAcademico.setTurmas(turmas);
         controleAcademico.setProfessores(professores);
 
-        new MenuSystem().run();
+        new Lab1().run();
     }
 
 

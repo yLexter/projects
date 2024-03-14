@@ -27,4 +27,14 @@ public class Professor extends Funcionario {
         return turmas;
     }
 
+    public List<Horario> getHorario() {
+        List<Horario> horarios = new ArrayList<>();
+
+        for (Turma turma : getTurmas()) {
+            horarios.addAll(turma.getHorarios());
+        }
+
+        return horarios;
+    }
+
 }
