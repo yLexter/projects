@@ -50,6 +50,8 @@ public class ControleAcademico {
         return false;
     }
 
+    // ------------------ Getters e Setters
+
     public List<Aluno> getAlunos() {
         return alunos;
     }

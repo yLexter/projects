@@ -59,9 +59,9 @@ public class Lab1 extends BaseLab {
         for (Turma turma : turmas) {
             System.out.println("Disciplina: " + turma.getNome());
 
-            List<Aluno> alunos = turma.getAlunos();
+            List<AlunoTurma> alunos = turma.getAlunos();
 
-            for (Aluno aluno : alunos) {
+            for (AlunoTurma aluno : alunos) {
                 System.out.printf("Aluno: [%s]\n", aluno);
             }
 

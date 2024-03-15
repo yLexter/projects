@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class Turma extends Disciplina {
     private String idProfessor;
-    private List<Aluno> alunos;
+    private List<AlunoTurma> alunos;
     private List<Horario> horarios;
     public final String id;
 
@@ -38,20 +38,15 @@ public class Turma extends Disciplina {
 
     public void adicionarAluno(Aluno novoAluno) {
 
-        for (Aluno aluno : alunos) {
-            if (aluno.getMatricula().equals(novoAluno.getMatricula()))
-                throw new IllegalArgumentException("Aluno já está na turma");
-        }
-
-        novoAluno.addDisciplina(id);
-        alunos.add(novoAluno);
     }
+
+    // ---------- Getters e Setters
 
     public int getTotalDeAluno() {
         return alunos.size();
     }
 
-    public List<Aluno> getAlunos() {
+    public List<AlunoTurma> getAlunos() {
         return alunos;
     }
 
@@ -77,7 +72,7 @@ public class Turma extends Disciplina {
         this.idProfessor = idProfessor;
     }
 
-    public void setAlunos(List<Aluno> alunos) {
+    public void setAlunos(List<AlunoTurma> alunos) {
         this.alunos = alunos;
     }
 

@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno extends Funcionario {
+
     private List<String> turmasId;
 
     public Aluno(String nome, String sobrenome) {
         super(nome, sobrenome);
-        this.turmasId = new ArrayList<>();
+        this.turmasId = new ArrayList<>();;
     }
 
     public void addDisciplina(String idTurma) {
@@ -26,7 +27,9 @@ public class Aluno extends Funcionario {
     public List<Horario> getHorario() {
         List<Horario> horarios = new ArrayList<>();
 
-        for (Turma turma : getTurmas()) {
+        var turmas = getTurmas();
+
+        for (Turma turma : turmas) {
             horarios.addAll(turma.getHorarios());
         }
 
@@ -36,5 +39,5 @@ public class Aluno extends Funcionario {
     public List<String> getTurmasId() {
         return turmasId;
     }
-    
+
 }
