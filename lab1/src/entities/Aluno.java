@@ -23,8 +23,6 @@ public class Aluno extends Funcionario {
         return controleAcademico.obterTurmasDeUmAluno(this);
     }
 
-
-
     public List<Horario> getHorario() {
         List<Horario> horarios = new ArrayList<>();
 

@@ -1,5 +1,8 @@
 package entities;
 
+import utils.Examples;
+import utils.Global;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -69,6 +72,20 @@ public class ControleAcademico {
 
     public void setTurmas(List<Turma> turmas) {
         this.turmas = turmas;
+    }
+
+    public static void setarBancoDeDados() {
+        ControleAcademico controleAcademico = Global.getControleAcademico();
+
+        var examples = Examples.getAll();
+
+        List<Professor> professores = (List<Professor>) examples.get("professores");
+        List<Aluno> alunos = (List<Aluno>) examples.get("alunos");
+        List<Turma> turmas = (List<Turma>) examples.get("turmas");
+
+        controleAcademico.setAlunos(alunos);
+        controleAcademico.setTurmas(turmas);
+        controleAcademico.setProfessores(professores);
     }
 
 }

@@ -20,23 +20,15 @@ public class ControleAcademicoTest {
     private Professor professor;
     private Turma turma;
 
-    private ControleAcademico controleAcademico;
+    private ControleAcademico controleAcademico = Global.getControleAcademico();
 
     @BeforeEach
     public void setUp () {
-        this.controleAcademico = Global.getControleAcademico();
+        ControleAcademico.setarBancoDeDados();
 
-        List<Professor> professores = Examples.obterProfessores();
-        List<Aluno> alunos = Examples.obterAlunos();
-        List<Turma> turmas = Examples.obterTurmas();
-
-        controleAcademico.setAlunos(alunos);
-        controleAcademico.setTurmas(turmas);
-        controleAcademico.setProfessores(professores);
-
-        this.aluno = alunos.get(0);
-        this.professor = professores.get(0);
-        this.turma = turmas.get(0);
+        this.aluno = controleAcademico.getAlunos().get(0);
+        this.professor = controleAcademico.getProfessores().get(0);
+        this.turma = controleAcademico.getTurmas().get(0);
     }
 
     @Test

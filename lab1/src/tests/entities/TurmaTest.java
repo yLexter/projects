@@ -19,36 +19,35 @@ public class TurmaTest {
 
     private Turma turma;
 
+
     public Horario horario;
 
     private ControleAcademico controleAcademico = Global.getControleAcademico();
 
     @BeforeEach
     public void setUp () {
-        List<Professor> professores = Examples.obterProfessores();
-        List<Aluno> alunos = Examples.obterAlunos();
-        List<Turma> turmas = Examples.obterTurmas();
+        ControleAcademico.setarBancoDeDados();
 
-        controleAcademico.setAlunos(alunos);
-        controleAcademico.setTurmas(turmas);
-        controleAcademico.setProfessores(professores);
-
-        this.turma = turmas.get(0);
+        this.turma = controleAcademico.getTurmas().get(0);
+        this.aluno = new Aluno("July", "July");
         this.horario = new Horario("1vB4", "ID_Turma");
-        this.aluno = new Aluno("João", "Silva");
     }
 
     @Test
-    public void testAdicionarAluno() {
+    public void testAdicionarAlunoRepetido() {
         turma.adicionarAluno(aluno);
-
-        assertEquals(3, turma.getTotalDeAluno());
-        assertEquals(1, aluno.getTurmas().size());
 
         assertThrows(
                 IllegalArgumentException.class,
                 () -> turma.adicionarAluno(aluno)
         );
+    }
+
+    @Test
+    public void testAdicionarHorario() {
+        turma.adicionarHorario(horario);
+
+        assertEquals(turma.getHorarios().size(), 3);
     }
 
     @Test

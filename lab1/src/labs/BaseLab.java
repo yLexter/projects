@@ -6,10 +6,17 @@ import java.util.List;
 
 public abstract class BaseLab {
 
-     public abstract List<IResponseLab> getOptions();
+    public record ResponseLab(String label, Runnable function) implements IResponseLab {
+        @Override
+        public void run() {
+            function.run();
+        }
+    }
+
+    public abstract List<IResponseLab> getOptions();
 
     public void run() {
-        List<IResponseLab> options = getOptions();
+        var options = getOptions();
 
         for (IResponseLab option : options) {
             System.out.println("-".repeat(50));

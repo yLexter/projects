@@ -27,24 +27,18 @@ public class AlunoTest {
 
     @BeforeEach
     public void setUp () {
-        List<Professor> professores = Examples.obterProfessores();
-        List<Aluno> alunos = Examples.obterAlunos();
-        List<Turma> turmas = Examples.obterTurmas();
+        ControleAcademico.setarBancoDeDados();
 
-        controleAcademico.setAlunos(alunos);
-        controleAcademico.setTurmas(turmas);
-        controleAcademico.setProfessores(professores);
-
-        this.aluno = alunos.get(0);
-        this.professor = professores.get(0);
-        this.turma = turmas.get(0);
+        this.aluno = controleAcademico.getAlunos().get(0);
+        this.professor = controleAcademico.getProfessores().get(0);
+        this.turma = controleAcademico.getTurmas().get(0);
     }
 
     @Test
     public void testObterHorario() {
         List<Horario> horarios = new ArrayList<>();
 
-        for(Turma turma : aluno.getTurmas()) {
+        for (Turma turma : aluno.getTurmas()) {
             horarios.addAll(turma.getHorarios());
         }
 
@@ -54,7 +48,5 @@ public class AlunoTest {
         );
 
     }
-
-
 
 }
