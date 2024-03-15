@@ -9,12 +9,15 @@ public class Funcionario {
 
     protected String matricula;
 
-    public Funcionario(String nome, String sobrenome) {
+    protected String cpf;
+
+    public Funcionario(String nome, String sobrenome, String cpf) {
 
         if (nome == null || sobrenome == null) {
             throw new IllegalArgumentException("Nome e sobrenome não podem ser nulos");
         }
 
+        this.cpf = cpf;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.matricula = UUID.randomUUID().toString();

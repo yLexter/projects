@@ -9,8 +9,8 @@ public class Aluno extends Funcionario {
 
     private List<String> turmasId;
 
-    public Aluno(String nome, String sobrenome) {
-        super(nome, sobrenome);
+    public Aluno(String nome, String sobrenome, String cpf) {
+        super(nome, sobrenome, cpf);
         this.turmasId = new ArrayList<>();;
     }
 

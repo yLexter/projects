@@ -1,9 +1,6 @@
 package tests.entities;
 
-import entities.ControleAcademico;
-import entities.Horario;
-import entities.Professor;
-import entities.Turma;
+import entities.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Global;
@@ -26,8 +23,10 @@ public class ProfessorTest {
     public void setUp() {
         ControleAcademico.setarBancoDeDados();
 
-        this.professor = new Professor("Carlos", "Silveira");
-        this.turma = new Turma("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 60);
+        this.professor = new Professor("Carlos", "Silveira", "s8948486466546");
+        this.turma = new Turma(
+                new Disciplina("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 60, 5)
+        );
     }
 
     @Test

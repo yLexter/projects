@@ -15,12 +15,27 @@ public class Examples {
         List<Professor> professores = new ArrayList<>();
         List<Turma> turmas = new ArrayList<>();
 
+        // Disciplinas
+        Disciplina d1 = new Disciplina(
+                "CPT01093",
+                "PARADIGMAS DE PROGRAMAÇÃO",
+                60,
+                5
+        );
+
+        Disciplina d2 = new Disciplina(
+                "CPT01092",
+                "ENGENHARIA DE SOFTWARE I",
+                60,
+                5
+        );
+
         // Alunos
-        alunos.add(new Aluno("João", "Silva"));
-        alunos.add(new Aluno("Maria", "Santos"));
+        alunos.add(new Aluno("João", "Silva", "4568484648468"));
+        alunos.add(new Aluno("Maria", "Santos", "5846846488468"));
         
         // Turmas
-        Turma t1 = new Turma("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 60);
+        Turma t1 = new Turma(d1);
 
         t1.adicionarHorario(new Horario("2W12", t1.getId()));
         t1.adicionarHorario(new Horario("3D45", t1.getId()));
@@ -29,7 +44,7 @@ public class Examples {
             t1.adicionarAluno(aluno);
         }
 
-        Turma t2 = new Turma("CPT01092", "ENGENHARIA DE SOFTWARE I", 60);
+        Turma t2 = new Turma(d2);
 
         t2.adicionarHorario(new Horario("1F45", t1.getId()));
         t2.adicionarHorario(new Horario("5N45", t1.getId()));
@@ -43,8 +58,8 @@ public class Examples {
         
 
         //Professores
-        Professor p1 = new Professor("Carlos", "Silveira");
-        Professor p2 = new Professor("Renata", "Lima");
+        Professor p1 = new Professor("Carlos", "Silveira", "4484646");
+        Professor p2 = new Professor("Renata", "Lima", "4854325230223");
 
         p1.addTurma(turmas.get(0));
         p1.addTurma(turmas.get(1));

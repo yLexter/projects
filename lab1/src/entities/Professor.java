@@ -6,8 +6,8 @@ import java.util.List;
 public class Professor extends Funcionario {
     private List<Turma> turmas;
 
-    public Professor(String nome, String sobrenome) {
-        super(nome, sobrenome);
+    public Professor(String nome, String sobrenome, String cpf) {
+        super(nome, sobrenome, cpf);
         this.turmas = new ArrayList<>();
     }
 

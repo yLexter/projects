@@ -4,12 +4,14 @@ public class Disciplina {
     protected String codigo;
     protected String nome;
     protected int horas;
+    protected int periodo;
 
-    public Disciplina(String codigo, String nome, int horas) {
+    public Disciplina(String codigo, String nome, int horas, int periodo) {
 
         if (codigo == null || nome == null || horas <= 0)
             throw new IllegalArgumentException("Nome ou codigo não pode ser nulos e hora > 0");
 
+        this.periodo = periodo;
         this.codigo = codigo;
         this.nome = nome;
         this.horas = horas;

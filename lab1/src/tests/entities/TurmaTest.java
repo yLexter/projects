@@ -29,7 +29,7 @@ public class TurmaTest {
         ControleAcademico.setarBancoDeDados();
 
         this.turma = controleAcademico.getTurmas().get(0);
-        this.aluno = new Aluno("July", "July");
+        this.aluno = new Aluno("July", "July", "shaushauashaa");
         this.horario = new Horario("1vB4", "ID_Turma");
     }
 
