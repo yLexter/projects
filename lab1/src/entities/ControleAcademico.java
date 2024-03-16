@@ -43,7 +43,9 @@ public class ControleAcademico {
         for (Turma turma : turmas) {
 
             for (Horario horario : turma.getHorarios()) {
-                if (novoHorario.equals(horario)) return true;
+                var stringHorario = horario.getHorario();
+
+                if (stringHorario.equals(novoHorario.getHorario())) return true;
             }
         }
 
@@ -52,19 +54,33 @@ public class ControleAcademico {
 
     // -- Adicionar Instancias
     public Professor adicionarProfessor(String nome, String sobrenome, String cpf) {
-        var professor = new Professor(nome, sobrenome, cpf);
+        var novoProfessor = new Professor(nome, sobrenome, cpf);
 
-        professores.add(professor);
+        for (var professor : professores) {
 
-        return professor;
+            if (professor.getCpf().equals(novoProfessor.getCpf())) {
+                throw new IllegalArgumentException("Professor já existe");
+            }
+        }
+
+        professores.add(novoProfessor);
+
+        return novoProfessor;
     }
 
     public Aluno adicionaAluno(String nome, String sobrenome, String cpf) {
-        var aluno = new Aluno(nome, sobrenome, cpf);
+        var novoAluno = new Aluno(nome, sobrenome, cpf);
 
-        alunos.add(aluno);
+        for (var aluno : alunos) {
 
-        return aluno;
+            if (aluno.getCpf().equals(novoAluno.getCpf())) {
+                throw new IllegalArgumentException("Aluno já existe");
+            }
+        }
+
+        alunos.add(novoAluno);
+
+        return novoAluno;
     }
 
     public Turma adicionarTurma(Disciplina disciplina) {
@@ -76,11 +92,18 @@ public class ControleAcademico {
     }
 
     public Disciplina adicionarDisciplina(String codigo, String nome, int periodo) {
-        Disciplina disciplina = new Disciplina(codigo, nome, periodo);
+        Disciplina novaDisciplina = new Disciplina(codigo, nome, periodo);
 
-        disciplinas.add(disciplina);
+        for (var disciplina : disciplinas) {
 
-        return disciplina;
+            if (disciplina.getCodigo().equals(novaDisciplina.getCodigo())) {
+                throw new IllegalArgumentException("Disciplina já existe");
+            }
+        }
+
+        disciplinas.add(novaDisciplina);
+
+        return novaDisciplina;
     }
 
     // ------------------ Getters e Setters
