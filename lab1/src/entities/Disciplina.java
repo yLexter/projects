@@ -17,6 +17,16 @@ public class Disciplina {
         this.horas = horas;
     }
 
+    public Disciplina(String codigo, String nome, int periodo) {
+        if (codigo == null || nome == null || periodo <= 0)
+            throw new IllegalArgumentException("Nome ou codigo não pode ser nulos e periodo > 0");
+
+        this.periodo = periodo;
+        this.codigo = codigo;
+        this.nome = nome;
+        this.horas = 60;
+    }
+
     public String getCodigo() {
         return codigo;
     }

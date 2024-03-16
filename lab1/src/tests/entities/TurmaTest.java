@@ -45,18 +45,18 @@ public class TurmaTest {
 
     @Test
     public void testAdicionarHorario() {
-        turma.adicionarHorario(horario);
+        turma.adicionarHorario(horario.getHorario());
 
         assertEquals(turma.getHorarios().size(), 3);
     }
 
     @Test
     public void testAdicionarHorarioRepetido() {
-        turma.adicionarHorario(horario);
+        turma.adicionarHorario(horario.getHorario());
 
         assertThrows(
                 IllegalArgumentException.class,
-                () -> turma.adicionarHorario(horario)
+                () -> turma.adicionarHorario(horario.getHorario())
         );
     }
 

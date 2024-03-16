@@ -37,8 +37,8 @@ public class Examples {
         // Turmas
         Turma t1 = new Turma(d1);
 
-        t1.adicionarHorario(new Horario("2W12", t1.getId()));
-        t1.adicionarHorario(new Horario("3D45", t1.getId()));
+        t1.adicionarHorario("2W12");
+        t1.adicionarHorario("3D45");
 
         for(Aluno aluno : alunos) {
             t1.adicionarAluno(aluno);
@@ -46,8 +46,8 @@ public class Examples {
 
         Turma t2 = new Turma(d2);
 
-        t2.adicionarHorario(new Horario("1F45", t1.getId()));
-        t2.adicionarHorario(new Horario("5N45", t1.getId()));
+        t2.adicionarHorario("1F45");
+        t2.adicionarHorario("5N45");
 
         for(Aluno aluno : alunos.subList(0,1)) {
             t2.adicionarAluno(aluno);

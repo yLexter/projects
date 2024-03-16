@@ -12,8 +12,8 @@ public class Professor extends Funcionario {
     }
 
     public void addTurma(Turma novaTurma) {
-        for (Turma turma : turmas) {
 
+        for (Turma turma : turmas) {
             if (turma.equals(novaTurma))
                 throw new IllegalArgumentException("Professor já pertence a turma");
 

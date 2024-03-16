@@ -11,11 +11,13 @@ public class ControleAcademico {
     private List<Aluno> alunos;
     private List<Professor> professores;
     private List<Turma> turmas;
+    private List<Disciplina> disciplinas;
 
     public ControleAcademico() {
         this.alunos = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.turmas = new ArrayList<>();
+        this.disciplinas = new ArrayList<>();
     }
 
     public Professor obterProfessorPorMatricula(String matricula) {
@@ -50,6 +52,39 @@ public class ControleAcademico {
         return false;
     }
 
+    // -- Adicionar Instancias
+    public Professor adicionarProfessor(String nome, String sobrenome, String cpf) {
+        var professor = new Professor(nome, sobrenome, cpf);
+
+        professores.add(professor);
+
+        return professor;
+    }
+
+    public Aluno adicionaAluno(String nome, String sobrenome, String cpf) {
+        var aluno = new Aluno(nome, sobrenome, cpf);
+
+        alunos.add(aluno);
+
+        return aluno;
+    }
+
+    public Turma adicionarTurma(Disciplina disciplina) {
+        var turma = new Turma(disciplina);
+
+        turmas.add(turma);
+
+        return turma;
+    }
+
+    public Disciplina adicionarDisciplina(String codigo, String nome, int periodo) {
+        Disciplina disciplina = new Disciplina(codigo, nome, periodo);
+
+        disciplinas.add(disciplina);
+
+        return disciplina;
+    }
+
     // ------------------ Getters e Setters
 
     public List<Aluno> getAlunos() {
@@ -76,6 +111,8 @@ public class ControleAcademico {
         this.turmas = turmas;
     }
 
+
+    // ------------------ Métodos estaticos
     public static void setarBancoDeDados() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
 

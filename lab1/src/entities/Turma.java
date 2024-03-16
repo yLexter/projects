@@ -28,8 +28,9 @@ public class Turma {
         this.alunos = new ArrayList<>();
     }
 
-    public void adicionarHorario(Horario novoHorario) {
+    public void adicionarHorario(String horario) {
         ControleAcademico controleAcademico = Global.getControleAcademico();
+        Horario novoHorario = new Horario(horario, id);
 
         if (controleAcademico.verificarHorarioEmUso(novoHorario))
             throw new IllegalArgumentException("Horário em uso");
@@ -39,6 +40,17 @@ public class Turma {
 
     public void adicionarAluno(Aluno novoAluno) {
 
+        for (AlunoTurma aluno : alunos) {
+            if (aluno.getMatricula().equals(novoAluno.getMatricula()))
+                throw new IllegalArgumentException("Aluno já está na turma");
+        }
+
+        AlunoTurma alunoTurma = new AlunoTurma(
+                novoAluno.getMatricula()
+        );
+
+        novoAluno.addDisciplina(id);
+        alunos.add(alunoTurma);
     }
 
     // ---------- Getters e Setters
