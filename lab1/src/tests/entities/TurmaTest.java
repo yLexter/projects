@@ -19,13 +19,12 @@ public class TurmaTest {
 
     private Turma turma;
 
-
     public Horario horario;
 
     private ControleAcademico controleAcademico = Global.getControleAcademico();
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         ControleAcademico.setarBancoDeDados();
 
         this.turma = controleAcademico.getTurmas().get(0);
@@ -37,10 +36,7 @@ public class TurmaTest {
     public void testAdicionarAlunoRepetido() {
         turma.adicionarAluno(aluno);
 
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> turma.adicionarAluno(aluno)
-        );
+        assertThrows(IllegalArgumentException.class, () -> turma.adicionarAluno(aluno));
     }
 
     @Test
@@ -55,10 +51,6 @@ public class TurmaTest {
         turma.adicionarHorario(horario.getHorario());
 
         assertThrows(
-                IllegalArgumentException.class,
-                () -> turma.adicionarHorario(horario.getHorario())
-        );
+                IllegalArgumentException.class, () -> turma.adicionarHorario(horario.getHorario()));
     }
-
-
 }

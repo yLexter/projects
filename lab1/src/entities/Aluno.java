@@ -11,7 +11,7 @@ public class Aluno extends Funcionario {
 
     public Aluno(String nome, String sobrenome, String cpf) {
         super(nome, sobrenome, cpf);
-        this.turmasId = new ArrayList<>();;
+        this.turmasId = new ArrayList<>();
     }
 
     public void addDisciplina(String idTurma) {
@@ -39,5 +39,4 @@ public class Aluno extends Funcionario {
     public List<String> getTurmasId() {
         return turmasId;
     }
-
 }

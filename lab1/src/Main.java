@@ -7,6 +7,4 @@ public class Main {
         new Lab2().run();
         new Lab1().run();
     }
-
-
 }

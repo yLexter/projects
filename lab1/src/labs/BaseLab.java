@@ -29,5 +29,4 @@ public abstract class BaseLab {
         System.out.println();
         System.out.println();
     }
-
 }

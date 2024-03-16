@@ -23,10 +23,11 @@ public class AlunoTest {
 
     public Horario horario;
 
-    private ControleAcademico controleAcademico = Global.getControleAcademico();;
+    private ControleAcademico controleAcademico = Global.getControleAcademico();
+    ;
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         ControleAcademico.setarBancoDeDados();
 
         this.aluno = controleAcademico.getAlunos().get(0);
@@ -42,11 +43,6 @@ public class AlunoTest {
             horarios.addAll(turma.getHorarios());
         }
 
-        assertEquals(
-                aluno.getHorario(),
-                horarios
-        );
-
+        assertEquals(aluno.getHorario(), horarios);
     }
-
 }

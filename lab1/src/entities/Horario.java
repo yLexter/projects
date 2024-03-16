@@ -30,6 +30,4 @@ public class Horario {
     public String toString() {
         return "%s".formatted(horario);
     }
-
 }
-

@@ -21,8 +21,7 @@ public class ControleAcademico {
     }
 
     public Professor obterProfessorPorMatricula(String matricula) {
-        return professores
-                .stream()
+        return professores.stream()
                 .filter(professor -> professor.getMatricula().equals(matricula))
                 .findAny()
                 .orElse(null);
@@ -31,11 +30,11 @@ public class ControleAcademico {
     public List<Turma> obterTurmasDeUmAluno(Aluno aluno) {
         List<String> turmasId = aluno.getTurmasId();
 
-        return turmas
-                .stream()
-                .filter(turma -> turmasId
-                        .stream()
-                        .anyMatch(turmaId -> turma.getId().equals(turmaId)))
+        return turmas.stream()
+                .filter(
+                        turma ->
+                                turmasId.stream()
+                                        .anyMatch(turmaId -> turma.getId().equals(turmaId)))
                 .collect(Collectors.toList());
     }
 
@@ -44,8 +43,7 @@ public class ControleAcademico {
         for (Turma turma : turmas) {
 
             for (Horario horario : turma.getHorarios()) {
-                if (novoHorario.equals(horario))
-                    return true;
+                if (novoHorario.equals(horario)) return true;
             }
         }
 
@@ -111,7 +109,6 @@ public class ControleAcademico {
         this.turmas = turmas;
     }
 
-
     // ------------------ Métodos estaticos
     public static void setarBancoDeDados() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
@@ -126,5 +123,4 @@ public class ControleAcademico {
         controleAcademico.setTurmas(turmas);
         controleAcademico.setProfessores(professores);
     }
-
 }

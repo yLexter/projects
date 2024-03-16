@@ -12,9 +12,7 @@ import java.util.List;
 public class Lab2 extends BaseLab {
 
     public List<IResponseLab> getOptions() {
-        return List.of(
-                new ResponseLab("Padrão Creator", this::mainLab2)
-        );
+        return List.of(new ResponseLab("Padrão Creator", this::mainLab2));
     }
 
     public void mainLab2() {
@@ -22,17 +20,11 @@ public class Lab2 extends BaseLab {
         ControleAcademico controleAcademico = Global.getControleAcademico();
 
         // Adicionando Disciplinas
-       var disciplina1 = controleAcademico.adicionarDisciplina(
-                "CPT01093",
-                "PARADIGMAS DE PROGRAMAÇÃO",
-                5
-        );
+        var disciplina1 =
+                controleAcademico.adicionarDisciplina("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 5);
 
-        var disciplina2 = controleAcademico.adicionarDisciplina(
-                "CPT01092",
-                "ENGENHARIA DE SOFTWARE I",
-                5
-        );
+        var disciplina2 =
+                controleAcademico.adicionarDisciplina("CPT01092", "ENGENHARIA DE SOFTWARE I", 5);
 
         // Adicionando alunos
         var aluno1 = controleAcademico.adicionaAluno("João", "Silva", "4568484648468");
@@ -64,6 +56,4 @@ public class Lab2 extends BaseLab {
 
         System.out.println("Adicionando entidades...");
     }
-
-
 }

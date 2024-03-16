@@ -50,5 +50,4 @@ public class Disciplina {
     public void setHoras(int horas) {
         this.horas = horas;
     }
-
 }

@@ -47,5 +47,4 @@ public class Funcionario {
     public String toString() {
         return "%s %s (%s)".formatted(nome, sobrenome, matricula);
     }
-
 }

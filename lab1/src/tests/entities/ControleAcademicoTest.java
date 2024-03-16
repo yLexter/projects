@@ -23,7 +23,7 @@ public class ControleAcademicoTest {
     private ControleAcademico controleAcademico = Global.getControleAcademico();
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         ControleAcademico.setarBancoDeDados();
 
         this.aluno = controleAcademico.getAlunos().get(0);
@@ -35,26 +35,18 @@ public class ControleAcademicoTest {
     public void testObterProfessorPorMatricula() {
 
         assertEquals(
-                professor,
-                controleAcademico.obterProfessorPorMatricula(professor.getMatricula())
-        );
-
+                professor, controleAcademico.obterProfessorPorMatricula(professor.getMatricula()));
     }
 
     @Test
     public void testVerificarHorarioEmUso() {
-       Horario horario = controleAcademico
-               .getTurmas()
-               .get(0)
-               .getHorarios()
-               .get(0);
+        Horario horario = controleAcademico.getTurmas().get(0).getHorarios().get(0);
 
-       assertTrue(controleAcademico.verificarHorarioEmUso(horario));
+        assertTrue(controleAcademico.verificarHorarioEmUso(horario));
     }
 
     @Test
     public void testObterTurmasDeUmAluno() {
         assertEquals(aluno.getTurmas(), controleAcademico.obterTurmasDeUmAluno(aluno));
     }
-
 }

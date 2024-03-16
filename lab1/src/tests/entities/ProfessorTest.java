@@ -24,9 +24,7 @@ public class ProfessorTest {
         ControleAcademico.setarBancoDeDados();
 
         this.professor = new Professor("Carlos", "Silveira", "s8948486466546");
-        this.turma = new Turma(
-                new Disciplina("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 60, 5)
-        );
+        this.turma = new Turma(new Disciplina("CPT01093", "PARADIGMAS DE PROGRAMAÇÃO", 60, 5));
     }
 
     @Test
@@ -43,7 +41,5 @@ public class ProfessorTest {
         professor.addTurma(t2);
 
         assertEquals(horario, professor.getHorario());
-
     }
-
 }

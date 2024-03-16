@@ -4,7 +4,6 @@ import entities.ControleAcademico;
 
 import java.util.Scanner;
 
-
 public class Global {
 
     private static ControleAcademico controleAcademico;
@@ -12,16 +11,12 @@ public class Global {
     private static Scanner scanner;
 
     public static Scanner getScanner() {
-        if (scanner != null)
-            return scanner;
+        if (scanner != null) return scanner;
         return scanner = new Scanner(System.in);
     }
 
     public static ControleAcademico getControleAcademico() {
-        if (controleAcademico != null)
-            return controleAcademico;
+        if (controleAcademico != null) return controleAcademico;
         return controleAcademico = new ControleAcademico();
     }
-
-
 }

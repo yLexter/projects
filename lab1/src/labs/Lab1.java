@@ -11,16 +11,22 @@ public class Lab1 extends BaseLab {
     @Override
     public List<IResponseLab> getOptions() {
         return List.of(
-                new ResponseLab("Quais disciplinas todos os professores estão ministrando", this::mostrarDisciplinasDosProfessores),
-                new ResponseLab("Qual o horário de todos os professores", this::mostrarHorarioDosProfessores),
-                new ResponseLab("Quais os alunos de cada disciplina", this::mostrarAlunosPorDisciplina),
-                new ResponseLab("Quais as disciplinas de todos os alunos", this::mostrarDisciplinasDosAlunos),
+                new ResponseLab(
+                        "Quais disciplinas que professores estão ministrando",
+                        this::mostrarDisciplinasProfessores),
+                new ResponseLab(
+                        "Qual o horário de todos os professores",
+                        this::mostrarHorarioDosProfessores),
+                new ResponseLab(
+                        "Quais os alunos de cada disciplina", this::mostrarAlunosPorDisciplina),
+                new ResponseLab(
+                        "Quais as disciplinas de todos os alunos",
+                        this::mostrarDisciplinasDosAlunos),
                 new ResponseLab("Qual o horário de todos os alunos", this::mostrarHorarioDosAlunos),
-                new ResponseLab("Qual o número de alunos de cada disciplina", this::mostrarNumeroDeAlunosPorDisciplina)
-        );
+                new ResponseLab("Número de alunos p/ turma", this::mostrarNumeroAlunosDisciplina));
     }
 
-    public void mostrarDisciplinasDosProfessores() {
+    public void mostrarDisciplinasProfessores() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
         List<Professor> professores = controleAcademico.getProfessores();
 
@@ -67,7 +73,6 @@ public class Lab1 extends BaseLab {
 
             System.out.println();
         }
-
     }
 
     public void mostrarDisciplinasDosAlunos() {
@@ -84,7 +89,6 @@ public class Lab1 extends BaseLab {
 
             System.out.println();
         }
-
     }
 
     public void mostrarHorarioDosAlunos() {
@@ -103,7 +107,7 @@ public class Lab1 extends BaseLab {
         }
     }
 
-    public void mostrarNumeroDeAlunosPorDisciplina() {
+    public void mostrarNumeroAlunosDisciplina() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
         List<Turma> turmas = controleAcademico.getTurmas();
 
@@ -112,7 +116,5 @@ public class Lab1 extends BaseLab {
             System.out.println("- Número de Alunos: " + turma.getTotalDeAluno());
             System.out.println();
         }
-
     }
-
 }

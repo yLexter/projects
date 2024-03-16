@@ -45,9 +45,7 @@ public class Turma {
                 throw new IllegalArgumentException("Aluno já está na turma");
         }
 
-        AlunoTurma alunoTurma = new AlunoTurma(
-                novoAluno.getMatricula()
-        );
+        AlunoTurma alunoTurma = new AlunoTurma(novoAluno.getMatricula());
 
         novoAluno.addDisciplina(id);
         alunos.add(alunoTurma);
@@ -101,5 +99,4 @@ public class Turma {
     public String toString() {
         return "[%s] %s (%s)".formatted(disciplina.codigo, disciplina.nome, id);
     }
-
 }
