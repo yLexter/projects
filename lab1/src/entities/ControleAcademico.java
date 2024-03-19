@@ -41,11 +41,13 @@ public class ControleAcademico {
     public boolean verificarHorarioEmUso(Horario novoHorario) {
 
         for (Turma turma : turmas) {
-
             for (Horario horario : turma.getHorarios()) {
                 var stringHorario = horario.getHorario();
 
-                if (stringHorario.equals(novoHorario.getHorario())) return true;
+                if (stringHorario.equals(novoHorario.getHorario())){
+                    return true;
+                }
+
             }
         }
 
