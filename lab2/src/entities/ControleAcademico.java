@@ -134,6 +134,10 @@ public class ControleAcademico {
         this.turmas = turmas;
     }
 
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
     // ------------------ Métodos estaticos
     public static void setarBancoDeDados() {
         ControleAcademico controleAcademico = Global.getControleAcademico();
@@ -148,4 +152,13 @@ public class ControleAcademico {
         controleAcademico.setTurmas(turmas);
         controleAcademico.setProfessores(professores);
     }
+
+    public static void resetarBancoDeDados() {
+        ControleAcademico controleAcademico = Global.getControleAcademico();
+
+        controleAcademico.setAlunos(new ArrayList<>());
+        controleAcademico.setTurmas(new ArrayList<>());
+        controleAcademico.setProfessores(new ArrayList<>());
+    }
+
 }
