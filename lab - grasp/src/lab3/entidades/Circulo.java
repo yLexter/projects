@@ -37,7 +37,7 @@ public class Circulo extends Figura2D {
 
     @Override
     public String toString() {
-        return String.format("Area do circulo %.3f", getArea());
+        return String.format("Círculo tem raio %.3f", raio);
     }
 
 }

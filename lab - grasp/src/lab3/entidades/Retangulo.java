@@ -48,6 +48,6 @@ public class Retangulo extends Figura2D {
 
     @Override
     public String toString() {
-        return String.format("Área do retângulo: %.3f", getArea());
+        return String.format("Retângulo: com altura: %.3f e largura: %.3f", altura, largura);
     }
 }

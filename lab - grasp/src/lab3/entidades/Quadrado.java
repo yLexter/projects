@@ -2,7 +2,7 @@ package lab3.entidades;
 
 import lab3.erros.Figura2DException;
 
-public class Quadrado {
+public class Quadrado extends Figura2D {
     private double lado;
 
     public Quadrado(double lado) throws Figura2DException {
@@ -36,6 +36,6 @@ public class Quadrado {
 
     @Override
     public String toString() {
-        return String.format("O quadrado criado tem lados de: %.3f", lado);
+        return String.format("Quadrado tem lados de: %.3f", lado);
     }
 }
