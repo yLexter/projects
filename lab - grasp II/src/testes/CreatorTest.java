@@ -6,8 +6,8 @@ import entidades.funcoes.Ator;
 import entidades.funcoes.Diretor;
 import entidades.funcoes.Roterista;
 import interfaces.IFuncaoFilme;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 import erros.GloboPlayException;
 
 
@@ -31,7 +31,7 @@ public class CreatorTest {
         assertEquals(funcoes.size(), funcionario.getFuncoes().size());
     }
 
-    @Test(expected = GloboPlayException.class)
+    @Test
     public void testCriarFuncionarioComFuncaoDesconhecida() {
         // Arrange
         String cpf = "123456789";

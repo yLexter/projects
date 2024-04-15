@@ -10,6 +10,11 @@ public class Diretor implements IFuncaoFilme {
     }
 
     @Override
+    public String getNome() {
+        return "Diretor";
+    }
+
+    @Override
     public String toString() {
         return "Diretor";
     }

@@ -4,9 +4,9 @@ import entidades.GloboPlay;
 import erros.GloboPlayException;
 import org.junit.jupiter.api.Test;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class GloboPlayTest {
 

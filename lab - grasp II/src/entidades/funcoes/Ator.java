@@ -10,6 +10,11 @@ public class Ator implements IFuncaoFilme {
     }
 
     @Override
+    public String getNome() {
+        return "Ator";
+    }
+
+    @Override
     public String toString() {
         return "Ator";
     }

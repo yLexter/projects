@@ -10,6 +10,11 @@ public class Roterista implements IFuncaoFilme {
     }
 
     @Override
+    public String getNome() {
+        return "Roterista";
+    }
+
+    @Override
     public String toString() {
         return "Roterista";
     }

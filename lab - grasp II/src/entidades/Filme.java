@@ -1,5 +1,6 @@
 package entidades;
 
+import erros.FilmeException;
 import erros.GloboPlayException;
 import interfaces.IFuncaoFilme;
 
@@ -30,7 +31,7 @@ public class Filme {
 
         for (FuncionarioFilme funcionario : funcionarios) {
             if (funcionario.getCpf().equals(novoFuncionario.getCpf())) {
-                throw new GloboPlayException("Funcionario já existe no filme");
+                throw new FilmeException("Funcionario já existe no filme");
             }
         }
 
