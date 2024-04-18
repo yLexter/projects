@@ -1,6 +1,9 @@
 package entidades;
 
+import erros.FuncionarioFilmeException;
 import interfaces.IFuncaoFilme;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +16,25 @@ public class FuncionarioFilme {
         this.cpf = cpf;
         this.nome = nome;
         this.funcoes = funcoes;
+    }
+
+    public FuncionarioFilme(String cpf, String nome) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.funcoes = new ArrayList<>();
+    }
+
+    public FuncionarioFilme adicionarFuncao(IFuncaoFilme funcao) {
+
+        for(IFuncaoFilme funcaoFilme : funcoes) {
+
+            if (funcaoFilme.getNome().equals(funcao.getNome()))
+                throw new FuncionarioFilmeException("Funcionario já tem esta função");
+        }
+
+        funcoes.add(funcao);
+
+        return this;
     }
 
     public String getCpf() {

@@ -38,6 +38,25 @@ public class Filme {
         funcionarios.add(novoFuncionario);
     }
 
+    public FuncionarioFilme cadastrarFuncionario(String cpf, String nome) {
+        FuncionarioFilme novoFuncionario = new FuncionarioFilme(
+                cpf,
+                nome
+        );
+
+        for (FuncionarioFilme funcionario : funcionarios) {
+            if (funcionario.getCpf().equals(novoFuncionario.getCpf())) {
+                throw new FilmeException("Funcionario já existe no filme");
+            }
+        }
+
+        funcionarios.add(novoFuncionario);
+
+        return novoFuncionario;
+    }
+
+
+
     public String getId() {
         return id;
     }

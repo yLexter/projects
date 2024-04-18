@@ -12,7 +12,7 @@ public class GloboPlay {
         this.filmes = new ArrayList<>();
     }
 
-    public void cadastrarFilme(String titulo, int anoLancamento, List<String> trilhasSonoras) {
+    public Filme cadastrarFilme(String titulo, int anoLancamento, List<String> trilhasSonoras) {
          Filme novoFilme = new Filme(
             titulo,
             anoLancamento,
@@ -26,6 +26,8 @@ public class GloboPlay {
         }
 
         filmes.add(novoFilme);
+
+        return novoFilme;
     }
 
     public void mostrarFilmes() {
@@ -37,6 +39,7 @@ public class GloboPlay {
             var funcionarios = filme.getFuncionarios();
             var trilhasSonoras = filme.getTrilhasSonoras();
 
+            System.out.println();
             System.out.println("-- Funcionários --");
 
             for (FuncionarioFilme funcionario : funcionarios) {

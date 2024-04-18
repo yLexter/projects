@@ -1,6 +1,8 @@
 package testes;
 
 import entidades.funcoes.*;
+import erros.FilmeException;
+import erros.FuncionarioFilmeException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entidades.Filme;
-import erros.GloboPlayException;
 import interfaces.IFuncaoFilme;
 
 public class FilmeTest {
@@ -40,7 +41,7 @@ public class FilmeTest {
 
         assertEquals(1, filme.getFuncionarios().size());
 
-        assertThrows(GloboPlayException.class, () -> {
+        assertThrows(FilmeException.class, () -> {
             filme.cadastrarFuncionario("1234", "Maria", funcoes);
         });
     }
