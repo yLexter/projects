@@ -7,7 +7,7 @@ public class Aluno extends Funcionario {
 
     private List<String> turmasId;
 
-    private List<HistorcoAluno> historico;
+    private List<HistoricoAluno> historico;
 
     public Aluno(String nome, String sobrenome, String cpf) {
         super(nome, sobrenome, cpf);
@@ -15,7 +15,7 @@ public class Aluno extends Funcionario {
         this.historico = new ArrayList<>();
     }
 
-    public List<HistorcoAluno> getHistorico() {
+    public List<HistoricoAluno> getHistorico() {
         return historico;
     }
 

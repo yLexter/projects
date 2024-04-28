@@ -1,14 +1,21 @@
 package school;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import school.entities.*;
+import school.facades.FachadaControleAcademico;
+import school.servicos.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        FachadaControleAcademico fachada = new FachadaControleAcademico();
+        // Fachada instancia
+        FachadaControleAcademico fachada = new FachadaControleAcademico(
+                new AlunoServico(),
+                new ProfessorSevico(),
+                new DisciplinaServico(),
+                new TurmaServico(),
+                new SalaServico()
+        );
 
         // Adicionando disciplinas
         Disciplina matematica = fachada.adicionarDisciplina("MAT123", "Matemática", 1);

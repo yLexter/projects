@@ -2,7 +2,7 @@ package school.entities;
 
 import java.util.UUID;
 
-public class HistorcoAluno {
+public class HistoricoAluno {
 
     private Disciplina disciplina;
 
@@ -10,7 +10,7 @@ public class HistorcoAluno {
 
     private final String id;
 
-    public HistorcoAluno(Disciplina disciplina, AlunoTurma alunoTurma) {
+    public HistoricoAluno(Disciplina disciplina, AlunoTurma alunoTurma) {
         this.disciplina = disciplina;
         this.alunoTurma = alunoTurma;
         this.id = UUID.randomUUID().toString();

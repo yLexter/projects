@@ -1,8 +1,10 @@
 package school.tests;
 
 import org.junit.jupiter.api.*;
+import school.facades.*;
 import school.entities.*;
-import school.erros.FachadaControleAcademicoException;
+import school.erros.*;
+import school.servicos.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,12 +16,17 @@ public class FacadeTest {
     private Disciplina disciplina;
     private Turma turma;
     private Sala sala;
-
     private AlunoTurma alunoTurmaHistorico;
 
     @BeforeEach
     public void setUp() {
-        this.fachada = new FachadaControleAcademico();
+        this.fachada = new FachadaControleAcademico(
+                new AlunoServico(),
+                new ProfessorSevico(),
+                new DisciplinaServico(),
+                new TurmaServico(),
+                new SalaServico()
+        );
 
         this.disciplina = fachada.adicionarDisciplina("MAT123", "Matemática", 1);
         this.professor = fachada.adicionarProfessor("João", "Silva", "123456789");
@@ -48,36 +55,36 @@ public class FacadeTest {
 
     @Test
     public void testAdicionarDisciplina() {
-        assertEquals(1, fachada.disciplinas.size());
+        assertEquals(1, fachada.getDisciplinaServico().getDisciplinas().size());
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(DisciplinaServicoException.class, () -> {
             fachada.adicionarDisciplina("MAT123", "Matemática", 1);
         });
     }
 
     @Test
     public void testAdicionarProfessor() {
-        assertEquals(1, fachada.professores.size());
+        assertEquals(1, fachada.getProfessorSevico().getProfessores().size());
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(ProfessorServicoException.class, () -> {
             fachada.adicionarProfessor("João", "Silva", "123456789");
         });
     }
 
     @Test
     public void testAdicionaAluno() {
-        assertEquals(1, fachada.alunos.size());
+        assertEquals(1, fachada.getAlunoServico().getAlunos().size());
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(AlunoServicoException.class, () -> {
             fachada.adicionaAluno("Pedro", "Santos", "111222333");
         });
     }
 
     @Test
     public void testAdicionarSala() {
-        assertEquals(1, fachada.salas.size());
+        assertEquals(1, fachada.getSalaServico().getSalas().size());
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(SalaServicoException.class, () -> {
             fachada.adicionarSala("LAB V", 50);
         });
     }
@@ -86,7 +93,7 @@ public class FacadeTest {
     public void testAdicionarHorarioEmTurma() {
         assertEquals(1, turma.getHorarios().size());
 
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(TurmaSevicoException.class, () -> {
             fachada.adicionarHorarioEmTurma(turma.getId(), "2M3M", "LAB V");
         });
 
@@ -94,7 +101,7 @@ public class FacadeTest {
 
     @Test
     public void testAdicionarTurmaAProfessor() {
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(TurmaSevicoException.class, () -> {
             fachada.adicionarTurmaAProfessor(professor.getMatricula(), turma.getId());
         });
     }
@@ -103,7 +110,7 @@ public class FacadeTest {
     public void testAdicionarCadeiraNoHistoricoAluno() {
         assertEquals(1, aluno.getHistorico().size());
 
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(AlunoServicoException.class, () -> {
             fachada.adicionarCadeiraNoHistoricoAluno(
                     aluno.getMatricula(),
                     alunoTurmaHistorico,
@@ -117,7 +124,7 @@ public class FacadeTest {
         assertTrue(aluno.getTurmasId().contains(turma.getId()));
 
         // Tentar adicionar o mesmo aluno à mesma turma deve lançar exceção
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(TurmaSevicoException.class, () -> {
             fachada.adicionarAlunoEmTurma(turma.getId(), aluno.getMatricula());
         });
     }
@@ -127,7 +134,7 @@ public class FacadeTest {
         assertEquals(professor, fachada.obterProfessorPorMatricula(professor.getMatricula()));
 
         // Verifique se a exceção é lançada para um professor inexistente
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(ProfessorServicoException.class, () -> {
             fachada.obterProfessorPorMatricula("999999999");
         });
     }
@@ -137,7 +144,7 @@ public class FacadeTest {
         assertEquals(turma, fachada.obterTurmaPorId(turma.getId()));
 
         // Verifique se a exceção é lançada para uma turma inexistente
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(TurmaSevicoException.class, () -> {
             fachada.obterTurmaPorId("999999999");
         });
     }
@@ -147,7 +154,7 @@ public class FacadeTest {
         assertEquals(aluno, fachada.obterAlunoPorId(aluno.getMatricula()));
 
         // Verifique se a exceção é lançada para um aluno inexistente
-        assertThrows(FachadaControleAcademicoException.class, () -> {
+        assertThrows(AlunoServicoException.class, () -> {
             fachada.obterAlunoPorId("999999999");
         });
     }
