@@ -20,6 +20,14 @@ public class FachadaControleAcademico {
         this.salaServico = salaServico;
     }
 
+    public FachadaControleAcademico() {
+        this.alunoServico = new AlunoServico();
+        this.professorSevico = new ProfessorSevico();
+        this.disciplinaServico = new DisciplinaServico();
+        this.turmaServico = new TurmaServico();
+        this.salaServico = new SalaServico();
+    }
+
     // - Getters
     public List<Turma> obterTurmasDeUmAluno(String alunoId) {
         Aluno aluno = alunoServico.obterAlunoPorId(alunoId);
@@ -65,7 +73,7 @@ public class FachadaControleAcademico {
     }
 
     public void adicionarTurmaAProfessor(String idProfessor, String idTurma) {
-         turmaServico.adicionarTurmaAProfessor(idProfessor, idTurma);
+        turmaServico.adicionarTurmaAProfessor(idProfessor, idTurma);
     }
 
     public Disciplina adicionarDisciplina(String codigo, String nome, int periodo) {
