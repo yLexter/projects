@@ -23,7 +23,6 @@ public class Circulo extends Figura2D {
     }
 
     public void setRaio(double raio) throws Figura2DException {
-
         if (raio <= 0)
           throw new Figura2DException("Medida do raio invalida");
 
@@ -41,23 +40,26 @@ public class Circulo extends Figura2D {
     }
 
     @Override
+    public String getNome() {
+        return "Círculo";
+    }
+
+    @Override
     public String toString() {
-        return String.format("Círculo tem raio %.3f", raio);
+        return String.format("%s [Raio: %.2f]", super.toString(), raio);
     }
 
     public static Circulo getInstance() {
         return instancia;
     }
 
-    public void createInstance(double raio) {
+    public static void createInstance(double raio) {
+
         if (instancia != null) {
             throw new SingletonException("Já existe um circulo");
         }
 
         instancia = new Circulo(raio);
     }
-
-
-
 
 }

@@ -1,6 +1,8 @@
 package enums;
+
 public enum TriangleKind {
-    EQUILATERAL, 
-    ISOSCELES, 
-    SCALENE 
+    EQUILATERAL,
+    ISOSCELES,
+    SCALENE,
+    RECTANGLE;
 }

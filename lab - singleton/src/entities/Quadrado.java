@@ -5,7 +5,7 @@ import erros.Figura2DException;
 public class Quadrado extends Figura2D {
     private double lado;
 
-    public Quadrado(double lado) throws Figura2DException {
+    public Quadrado(double lado)  {
 
         if (lado <= 0) {
             throw new Figura2DException("O lado deve ser maior que zero.");
@@ -30,12 +30,19 @@ public class Quadrado extends Figura2D {
         return lado * lado;
     }
 
+    @Override
+    public String getNome() {
+        return "Quadrado";
+    }
+
+    @Override
     public double getPerimetro() {
         return 4 * lado;
     }
 
     @Override
     public String toString() {
-        return String.format("Quadrado tem lados de: %.3f", lado);
+        return String.format("%s [Lado: %.2f]", super.toString(), lado);
     }
+
 }

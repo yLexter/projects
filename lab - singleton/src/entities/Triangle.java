@@ -4,15 +4,14 @@ import enums.TriangleKind;
 import erros.Figura2DException;
 import erros.SingletonException;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Triangle extends Figura2D {
-
-    private HashMap<TriangleKind, Triangle> instancias;
-
-    public int MAXIMO_TRIANGULOS = 3;
+    private static final HashMap<TriangleKind, Triangle> instances = new HashMap<>();
+    public static final int MAXIMUN_TRIANGLES = 3;
 
     private double side1;
     private double side2;
@@ -31,6 +30,13 @@ public class Triangle extends Figura2D {
 
     public TriangleKind getKind() {
         int uniqueSides = getNumberOfUniqueSides();
+        double[] sizes = {side1, side2, side3};
+
+        Arrays.sort(sizes);
+
+        if (Math.pow(sizes[0], 2) + Math.pow(sizes[1], 2) == Math.pow(sizes[2], 2)) {
+            return TriangleKind.RECTANGLE;
+        }
 
         if (uniqueSides == 1) {
             return TriangleKind.EQUILATERAL;
@@ -65,26 +71,42 @@ public class Triangle extends Figura2D {
         return sides.size();
     }
 
-    public Triangle getInstancia(TriangleKind tipoTriangulo) {
-        return instancias.get(tipoTriangulo);
+    public static Triangle getInstance(TriangleKind tipoTriangulo) {
+        return instances.get(tipoTriangulo);
     }
 
-    public Triangle criarInstancia(double side1, double side2, double side3) {
+    public static Triangle createInstance(double side1, double side2, double side3) {
 
-        if (instancias.size() == MAXIMO_TRIANGULOS) {
-            throw new SingletonException("Já possui %d triangulos".formatted(MAXIMO_TRIANGULOS));
+        if (instances.size() == MAXIMUN_TRIANGLES) {
+            throw new SingletonException("Já possui %d triangulos".formatted(MAXIMUN_TRIANGLES));
         }
 
-        Triangle triangulo = new Triangle(side1, side2, side3);
-        TriangleKind tipoTriangulo = triangulo.getKind();
+        Triangle triangle = new Triangle(side1, side2, side3);
 
-        if (instancias.containsKey(tipoTriangulo)) {
-            throw new SingletonException("Não é possivel triangulos com o mesmo tipo 2x");
+        TriangleKind triangleKind = triangle.getKind();
+
+        if (instances.containsKey(triangleKind)) {
+            throw new SingletonException("Não é possivel triangulo com o mesmo tipo 2x");
         }
 
-        instancias.put(tipoTriangulo, triangulo);
+        if (triangle.getKind() == TriangleKind.SCALENE) {
+            throw new Error("Triangulo escaleno não é permitido");
+        }
 
-        return triangulo;
+        instances.put(triangleKind, triangle);
+
+        return triangle;
+    }
+
+    public static void showTriangles() {
+        System.out.println("Triângulos");
+        System.out.println();
+
+        for (Triangle triangle : instances.values()) {
+            System.out.println(triangle);
+        }
+
+        System.out.println();
     }
 
     @Override
@@ -98,4 +120,19 @@ public class Triangle extends Figura2D {
         return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
     }
 
+    @Override
+    public String getNome() {
+        return "Triângulo";
+    }
+
+    @Override
+    public String toString() {
+        return "%s [Lados: %.2f, %.2f, %.2f] | [Tipo: %s]".formatted(
+            super.toString(),
+            side1,
+            side2,
+            side3,
+            getKind()
+        );
+    }
 }
