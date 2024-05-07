@@ -6,20 +6,21 @@ import static org.junit.Assert.assertThrows;
 
 import entities.Quadrado;
 import erros.Figura2DException;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class QuadradoTest {
 
     private Quadrado quadrado;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         quadrado = new Quadrado(5.0); // Criando uma instância do quadrado antes de cada teste
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         quadrado = null; // Destruindo a instância do quadrado após cada teste
     }
@@ -50,9 +51,11 @@ public class QuadradoTest {
         assertEquals(20.0, quadrado.getPerimetro(), 0.0001); // Verificando se o perímetro do quadrado é 20.0
     }
 
-    @Test(expected = Figura2DException.class)
+    @Test
     public void testLadoNegativo() {
-        Quadrado quadradoNegativo = new Quadrado(-5.0); // Tentando criar um quadrado com lado negativo, deve lançar Figura2DException
+        assertThrows(Figura2DException.class, () -> {
+            new Quadrado(-5.0); // Tentando criar um quadrado com lado negativo, deve lançar Figura2DException
+        });
     }
 }
 

@@ -53,6 +53,10 @@ public class Circulo extends Figura2D {
         return instancia;
     }
 
+    public static void resetInstance() {
+        instancia = null;
+    }
+
     public static void createInstance(double raio) {
 
         if (instancia != null) {

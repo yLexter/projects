@@ -7,20 +7,21 @@ import static org.junit.Assert.assertThrows;
 import entities.Circulo;
 import erros.Figura2DException;
 import erros.SingletonException;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 public class CirculoTest {
 
-    @BeforeClass
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         Circulo.createInstance(5.0); // Criando a instância única antes de executar os testes
     }
 
-    @AfterClass
-    public static void tearDown() {
-        Circulo.getInstance(); // Destruindo a instância única após a execução dos testes
+    @AfterEach
+    public void tearDown() {
+        Circulo.resetInstance();
     }
 
     @Test
@@ -71,8 +72,10 @@ public class CirculoTest {
         assertEquals("Figura2D (Círculo) | [Área: 78,54] - [Perímetro: 31,42] | [Raio: 5,00]", circulo.toString());
     }
 
-    @Test(expected = SingletonException.class)
+    @Test
     public void testRaioNegativo() {
-        Circulo.createInstance(-5.0);
+        assertThrows(SingletonException.class, () -> {
+            Circulo.createInstance(-5.0);
+        });
     }
 }

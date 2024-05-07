@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Triangle extends Figura2D {
-    private static final HashMap<TriangleKind, Triangle> instances = new HashMap<>();
+    private static HashMap<TriangleKind, Triangle> instances = new HashMap<>();
     public static final int MAXIMUN_TRIANGLES = 3;
 
     private double side1;
@@ -90,12 +90,16 @@ public class Triangle extends Figura2D {
         }
 
         if (triangle.getKind() == TriangleKind.SCALENE) {
-            throw new Error("Triangulo escaleno não é permitido");
+            throw new SingletonException("Triangulo escaleno não é permitido");
         }
 
         instances.put(triangleKind, triangle);
 
         return triangle;
+    }
+
+    public static void resetInstances() {
+        instances = new HashMap<>();
     }
 
     public static void showTriangles() {
