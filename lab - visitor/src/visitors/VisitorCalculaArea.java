@@ -24,7 +24,7 @@ public class VisitorCalculaArea implements IVisitor {
 
     @Override
     public Double visitaRetangulo(Retangulo retangulo) {
-        return retangulo.getLadoA() * retangulo.getLadoB();
+        return retangulo.getLargura() * retangulo.getAltura();
     }
 
 }

@@ -5,40 +5,39 @@ import interfaces.IAceitaVisitor;
 import interfaces.IVisitor;
 
 public class Retangulo extends Figura2D implements IAceitaVisitor {
-    private double ladoA;
-    private double ladoB;
+    private double largura;
+    private double altura;
 
-    public Retangulo(double ladoA, double ladoB) throws IllegalArgumentException {
-        if (ladoA <= 0 || ladoB <= 0) {
+    public Retangulo(double largura, double altura) throws IllegalArgumentException {
+        if (largura <= 0 || altura <= 0) {
             throw new Figura2DException("Os lados do retângulo devem ser maiores que zero.");
         }
 
-        this.ladoA = ladoA;
-        this.ladoB = ladoB;
+        this.largura = largura;
+        this.altura = altura;
     }
 
-    public double getLadoA() {
-        return ladoA;
+    public double getLargura() {
+        return largura;
     }
 
-    public void setLadoA(double ladoA) {
-        if (ladoA <= 0) {
+    public void setLargura(double largura) {
+        if (largura <= 0) {
             throw new Figura2DException("Os lados do retângulo devem ser maiores que zero.");
         }
 
-        this.ladoA = ladoA;
+        this.largura = largura;
     }
 
-    public double getLadoB() {
-        if (ladoA <= 0) {
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        if (altura <= 0) {
             throw new Figura2DException("Os lados do retângulo devem ser maiores que zero.");
         }
-
-        return ladoB;
-    }
-
-    public void setLadoB(double ladoB) {
-        this.ladoB = ladoB;
+        this.altura = altura;
     }
 
     @Override
@@ -53,10 +52,10 @@ public class Retangulo extends Figura2D implements IAceitaVisitor {
 
     @Override
     public String toString() {
-        return "%s [Lados: %.2f, %.2f]".formatted(
+        return "%s [Largura: %.2f | Altura: %.2f]".formatted(
                 super.toString(),
-                ladoA,
-                ladoB
+                largura,
+                altura
         );
     }
 

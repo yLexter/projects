@@ -55,8 +55,8 @@ public class VisitorDesenhar implements IVisitor {
 
     @Override
     public Double visitaRetangulo(Retangulo retangulo) {
-        int ladoB = (int) retangulo.getLadoB();
-        int ladoA = (int) retangulo.getLadoA();
+        int ladoB = (int) retangulo.getAltura();
+        int ladoA = (int) retangulo.getLargura();
 
         System.out.println("Desenhando: ");
         System.out.println(retangulo);
