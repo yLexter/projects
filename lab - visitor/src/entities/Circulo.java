@@ -38,7 +38,7 @@ public class Circulo extends Figura2D implements IAceitaVisitor {
     }
 
     @Override
-    public Double aceitarVisitor(IVisitor visitor) {
+    public <T> T aceitarVisitor(IVisitor<T> visitor) {
         return visitor.visitaCirculo(this);
     }
 

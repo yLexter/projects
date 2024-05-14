@@ -5,9 +5,9 @@ import entities.Retangulo;
 import entities.Trapezio;
 import entities.Triangle;
 
-public interface IVisitor {
-    Double visitaCirculo(Circulo circulo);
-    Double visitaTriangulo(Triangle triangle);
-    Double visitaRetangulo(Retangulo retangulo);
-    Double visitaTrapezio(Trapezio trapezio);
+public interface IVisitor<T> {
+    T visitaCirculo(Circulo circulo);
+    T visitaTriangulo(Triangle triangle);
+    T visitaRetangulo(Retangulo retangulo);
+    T visitaTrapezio(Trapezio trapezio);
 }

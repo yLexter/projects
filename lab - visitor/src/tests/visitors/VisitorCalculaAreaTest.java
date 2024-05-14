@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class VisitorCalculaAreaTest {
 
-    public IVisitor visitor;
+    public VisitorCalculaArea visitor;
     @BeforeEach
     public void setUp() {
         this.visitor = new VisitorCalculaArea();
@@ -19,7 +19,7 @@ public class VisitorCalculaAreaTest {
     @Test
     public void testCalculaAreaCirculo() {
         Circulo circulo = new Circulo(5.0);
-        double area = circulo.aceitarVisitor(visitor);
+        Double area = circulo.aceitarVisitor(visitor);
         assertEquals(Math.PI * 25.0, area, 1e-6);
     }
 

@@ -11,8 +11,8 @@ public class RetanguloTest {
     @Test
     public void testConstrutorComLadosPositivos() {
         Retangulo retangulo = new Retangulo(6.0, 8.0);
-        assertEquals(6.0, retangulo.getAltura(), 1e-6);
-        assertEquals(8.0, retangulo.getLargura(), 1e-6);
+        assertEquals(6.0, retangulo.getLargura(), 1e-6);
+        assertEquals(8.0, retangulo.getAltura(), 1e-6);
     }
 
     @Test

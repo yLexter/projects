@@ -87,8 +87,8 @@ public class Triangle extends Figura2D implements IAceitaVisitor {
     }
 
     @Override
-    public Double aceitarVisitor(IVisitor visitor) {
-       return visitor.visitaTriangulo(this);
+    public <T> T aceitarVisitor(IVisitor<T> visitor) {
+        return visitor.visitaTriangulo(this);
     }
 
     @Override

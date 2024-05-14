@@ -1,42 +1,44 @@
 package visitors;
 
-import entities.Circulo;
-import entities.Retangulo;
-import entities.Trapezio;
-import entities.Triangle;
+import entities.*;
 import interfaces.IVisitor;
 
-public class VisitorMaximizarFigura implements IVisitor {
+public class VisitorMaximizarFigura implements IVisitor<Figura2D> {
     @Override
-    public Double visitaCirculo(Circulo circulo) {
-        // Duplicando o raio
+    public Figura2D visitaCirculo(Circulo circulo) {
         circulo.setRaio(circulo.getRaio() * 2);
-        return null; // Não estamos retornando a área ou perímetro aqui
+
+        return circulo;
     }
 
     @Override
-    public Double visitaTriangulo(Triangle triangle) {
-        // Multiplicando cada lado por 2
+    public Figura2D visitaTriangulo(Triangle triangle) {
         triangle.setSides(triangle.getSide1() * 2, triangle.getSide2() * 2, triangle.getSide3() * 2 );
 
-        return null;
+        return triangle;
     }
 
     @Override
-    public Double visitaRetangulo(Retangulo retangulo) {
-        // Duplicando a largura e altura
+    public Figura2D visitaRetangulo(Retangulo retangulo) {
         retangulo.setLargura(retangulo.getLargura() * 2);
         retangulo.setAltura(retangulo.getAltura() * 2);
-        return null;
+
+        return retangulo;
     }
 
     @Override
-    public Double visitaTrapezio(Trapezio trapezio) {
-        // Multiplicando cada lado por 2
+    public Figura2D visitaTrapezio(Trapezio trapezio) {
         trapezio.setBaseMaior(trapezio.getBaseMaior() * 2);
         trapezio.setBaseMenor(trapezio.getBaseMenor() * 2);
         trapezio.setLado1(trapezio.getLado1() * 2);
         trapezio.setLado2(trapezio.getLado2() * 2);
-        return null;
+
+        return trapezio;
     }
+
+    @Override
+    public String toString() {
+        return "Visitor de Maximizar Figura";
+    }
+
 }

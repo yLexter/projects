@@ -6,7 +6,7 @@ import entities.Trapezio;
 import entities.Triangle;
 import interfaces.IVisitor;
 
-public class VisitorCalculaPerimetro implements IVisitor {
+public class VisitorCalculaPerimetro implements IVisitor<Double> {
     @Override
     public Double visitaCirculo(Circulo circulo) {
         return 2 * Math.PI * circulo.getRaio();
@@ -25,5 +25,10 @@ public class VisitorCalculaPerimetro implements IVisitor {
     @Override
     public Double visitaTrapezio(Trapezio trapezio) {
         return trapezio.getBaseMaior() + trapezio.getBaseMenor() + trapezio.getLado1() + trapezio.getLado2();
+    }
+
+    @Override
+    public String toString() {
+        return "Visitor de Calcular Perímetro";
     }
 }

@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface IAceitaVisitor {
-    Double aceitarVisitor(IVisitor visitor);
+      <T> T aceitarVisitor(IVisitor<T> visitor);
 }

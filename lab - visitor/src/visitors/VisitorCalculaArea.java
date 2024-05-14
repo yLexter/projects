@@ -6,7 +6,7 @@ import entities.Trapezio;
 import entities.Triangle;
 import interfaces.IVisitor;
 
-public class VisitorCalculaArea implements IVisitor {
+public class VisitorCalculaArea implements IVisitor<Double> {
 
     @Override
     public Double visitaCirculo(Circulo circulo) {
@@ -31,6 +31,11 @@ public class VisitorCalculaArea implements IVisitor {
     @Override
     public Double visitaTrapezio(Trapezio trapezio) {
         return ((trapezio.getBaseMaior() + trapezio.getBaseMenor()) / 2) * trapezio.getAltura();
+    }
+
+    @Override
+    public String toString() {
+        return "Visitor de Calcular Área";
     }
 
 }
