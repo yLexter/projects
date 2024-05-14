@@ -3,11 +3,16 @@ package visitors;
 import entities.Circulo;
 import entities.Retangulo;
 import entities.Triangle;
+import entities.Trapezio;
 import interfaces.IVisitor;
 
 public class VisitorDesenhar implements IVisitor {
     @Override
     public Double visitaCirculo(Circulo circulo) {
+
+        if (circulo == null) {
+            throw new IllegalArgumentException("Circulo não pode ser nulo");
+        }
 
         System.out.println("Desenhando: ");
         System.out.println(circulo);
@@ -75,6 +80,26 @@ public class VisitorDesenhar implements IVisitor {
 
         return null;
     }
+
+    @Override
+    public Double visitaTrapezio(Trapezio trapezio) {
+        System.out.println("Desenhando Trapézio:");
+        int altura = (int) trapezio.getAltura();
+        int baseMaior = (int) trapezio.getBaseMaior();
+        int baseMenor = (int) trapezio.getBaseMenor();
+
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < baseMenor + i * (baseMaior - baseMenor) / (altura - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        return null;
+    }
+
+
+
 
 
 }

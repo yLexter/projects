@@ -2,6 +2,7 @@ package visitors;
 
 import entities.Circulo;
 import entities.Retangulo;
+import entities.Trapezio;
 import entities.Triangle;
 import interfaces.IVisitor;
 
@@ -25,6 +26,11 @@ public class VisitorCalculaArea implements IVisitor {
     @Override
     public Double visitaRetangulo(Retangulo retangulo) {
         return retangulo.getLargura() * retangulo.getAltura();
+    }
+
+    @Override
+    public Double visitaTrapezio(Trapezio trapezio) {
+        return ((trapezio.getBaseMaior() + trapezio.getBaseMenor()) / 2) * trapezio.getAltura();
     }
 
 }

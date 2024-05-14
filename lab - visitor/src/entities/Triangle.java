@@ -53,6 +53,8 @@ public class Triangle extends Figura2D implements IAceitaVisitor {
         return side3;
     }
 
+
+
     public void setSide1(double side1) {
         new Triangle(side1, this.side2, this.side3);
 
@@ -70,6 +72,14 @@ public class Triangle extends Figura2D implements IAceitaVisitor {
 
         this.side3 = side3;
     }
+    public void setSides(double side1, double side2, double side3) {
+        new Triangle(side1, side2, side3);
+
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
 
     @Override
     public String getNome() {
