@@ -1,5 +1,6 @@
 import listToMap.ElementAdapter;
 import listToMap.ListToMapAdapter;
+import mapToList.MapToListAdapter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +20,7 @@ public class Main {
             System.out.println("-".repeat(50));
 
             System.out.println();
-            System.out.printf("Para o Map: %s\n", map);
+            System.out.printf("Para o Map: " + map);
             System.out.println();
 
             map.put("Key-1", 50);
@@ -43,6 +44,32 @@ public class Main {
 
         // -------------------------------------------------------------------------------
 
+
+        // Adaptação de Map para Lista
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Key-1", 50);
+        map.put("Key-2", 30);
+        map.put("Key-3", 10);
+
+        List<Integer> list = new MapToListAdapter<>(map);
+
+        System.out.println("-".repeat(50));
+        System.out.println();
+        System.out.println("Para a Lista: " + list);
+        System.out.println();
+
+        System.out.println("Contains '50': " + list.contains(50));
+        System.out.println("Get(1): " + list.get(1));
+        System.out.println("Size: " + list.size());
+        System.out.println("IsEmpty: " + list.isEmpty());
+        System.out.println("Remove '50': " + list.remove((Integer) 50));
+        System.out.println("Size após remoção: " + list.size());
+        list.clear();
+        System.out.println("Depois do clear() | IsEmpty:  " + list.isEmpty());
+
+        System.out.println();
+        System.out.println("-".repeat(50));
+        System.out.println();
     }
 
 }
