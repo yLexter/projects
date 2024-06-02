@@ -6,9 +6,13 @@ import java.util.List;
 
 public class PainelCentral implements IObserver {
     @Override
-    public void update(List<AcentoOnibus> acentos) {
+    public void update(Onibus onibus) {
+        List<AcentoOnibus> acentos = onibus.getAcentos();
+
         System.out.println("-".repeat(50));
         System.out.println("---- Painel Central Atualizado -------");
+        System.out.println();
+        System.out.println(onibus);
         System.out.println();
 
         for (AcentoOnibus acento : acentos) {

@@ -1,6 +1,7 @@
 package observer;
 
 import entities.AcentoOnibus;
+import entities.Onibus;
 import interfaces.IObserver;
 
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class ObserverManger {
         this.observers.remove(observer);
     }
 
-    public void notifyObservers(List<AcentoOnibus> acentos) {
+    public void notifyObservers(Onibus onibus) {
         for (IObserver observer : this.observers) {
-            observer.update(acentos);
+            observer.update(onibus);
         }
     }
 
