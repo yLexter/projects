@@ -1,5 +1,7 @@
-package entities;
+package view;
 
+import entities.AcentoOnibus;
+import entities.Onibus;
 import interfaces.IObserver;
 
 import java.util.List;

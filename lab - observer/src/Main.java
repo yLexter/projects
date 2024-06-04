@@ -1,25 +1,26 @@
+import controller.BusController;
 import entities.Onibus;
-import entities.PainelCentral;
+import view.PainelCentral;
 import enums.AcentoStatus;
 import observer.ObserverManger;
+import view.KioskView;
 
 public class Main {
     public static void main(String[] args) {
-
         ObserverManger observerManger = new ObserverManger();
         PainelCentral painelCentral = new PainelCentral();
-        Onibus onibus = new Onibus(
-                "300B",
-                10,
-                observerManger
-        );
+        KioskView kiosk1 = new KioskView("Quiosque 1");
+        KioskView kiosk2 = new KioskView("Quiosque 2");
 
         observerManger.addObserver(painelCentral);
+        observerManger.addObserver(kiosk1);
+        observerManger.addObserver(kiosk2);
 
-        onibus.atualizarStatusAcento(
-            5,
-            AcentoStatus.INDISPONIVEL
-        );
+        Onibus onibus = new Onibus("300B", 10, observerManger);
+        BusController controller = new BusController(onibus);
 
+        controller.marcarAcentoIndisponivel(5);
+        controller.reservarAcento(3);
+        controller.liberarAcento(5);
     }
 }
