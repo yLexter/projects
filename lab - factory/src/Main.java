@@ -1,18 +1,25 @@
-import concreteCreators.*;
-import creator.Sanduiche;
+import sanduiche.Sanduiche;
+import sanduicheFactory.SanduicheDePresuntoDePapaiLulinha;
+import sanduicheFactory.SanduicheDePresuntoDoChavesFactory;
+import sanduicheFactory.SanduicheFactory;
+import sanduicheFactory.SanduicheicheDeFrango;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Sanduiche sanduiche1 = new SanduicheIntegralPratoFrangoCapoeira();
-        sanduiche1.criarSanduiche();
-        System.out.println(sanduiche1);
 
-        Sanduiche sanduiche2 = new SanduicheFrancesMussarelaPeruGranja();
-        sanduiche2.criarSanduiche();
-        System.out.println(sanduiche2);
+        List<SanduicheFactory> factorys = List.of(
+                new SanduicheDePresuntoDePapaiLulinha(),
+                new SanduicheDePresuntoDoChavesFactory(),
+                new SanduicheicheDeFrango()
+        );
 
-        Sanduiche sanduiche3 = new SanduicheBolaCheddarFrangoCapoeira();
-        sanduiche3.criarSanduiche();
-        System.out.println(sanduiche3);
+        for (SanduicheFactory factory : factorys) {
+            Sanduiche sanduiche = factory.criarSanduiche();
+            System.out.println(sanduiche);
+            System.out.println();
+        }
+
     }
 }
