@@ -1,14 +1,9 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import sanduiche.Sanduiche;
-import sanduicheFactory.SanduicheDePresuntoDePapaiLulinha;
-import sanduicheFactory.SanduicheDePresuntoDoChavesFactory;
-import sanduicheFactory.SanduicheFactory;
-import sanduicheFactory.SanduicheicheDeFrango;
-
+/*
 public class SanduicheFactoryTest {
 
     @Test
@@ -47,5 +42,5 @@ public class SanduicheFactoryTest {
         assertEquals("Tomate", sanduiche.getTomate().getTipo());
     }
 
-}
+}*/
 

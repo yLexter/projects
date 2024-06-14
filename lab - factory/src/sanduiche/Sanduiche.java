@@ -1,45 +1,33 @@
 package sanduiche;
 
 import produto.*;
+import produtosConcretos.*;
 
 public class Sanduiche {
-    protected Pao pao;
-    protected Queijo queijo;
-    protected Presunto presunto;
-    protected Ovo ovo;
-    protected Tomate tomate;
 
-    public Sanduiche(Pao pao, Queijo queijo, Presunto presunto, Ovo ovo, Tomate tomate) {
-        this.pao = pao;
-        this.queijo = queijo;
-        this.presunto = presunto;
-        this.ovo = ovo;
-        this.tomate = tomate;
+
+    protected Pao criarPao() {
+        return new PaoIntegral();
     }
 
-    public Pao getPao() {
-        return pao;
+    protected Queijo criarQueijo() {
+        return new QueijoPrato();
     }
 
-    public Queijo getQueijo() {
-        return queijo;
+    protected Presunto criarPresunto() {
+        return new PresuntoFrango();
     }
 
-    public Presunto getPresunto() {
-        return presunto;
+    protected Ovo criarOvo() {
+        return new OvoCapoeira();
     }
 
-    public Ovo getOvo() {
-        return ovo;
+    protected Tomate criarTomate() {
+        return new TomateComum();
     }
 
-    public Tomate getTomate() {
-        return tomate;
-    }
 
-    @Override
-    public String toString() {
-        return "Sanduíche com " + pao.getTipo() + ", " + queijo.getTipo() + ", " + presunto.getTipo() + ", " + ovo.getTipo() + " e " + tomate.getTipo();
+    public String criarSanduiche() {
+        return "Sanduíche com " + criarPao().getTipo() + ", " + criarQueijo().getTipo() + ", " + criarPresunto().getTipo() + ", " + criarOvo().getTipo() + " e " + criarTomate().getTipo();
     }
-
 }
