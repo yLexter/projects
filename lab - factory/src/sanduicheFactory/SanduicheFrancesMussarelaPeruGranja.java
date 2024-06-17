@@ -12,22 +12,22 @@ import sanduiche.Sanduiche;
 
 public class SanduicheFrancesMussarelaPeruGranja extends Sanduiche {
     @Override
-    protected Pao criarPao() {
+    public Pao criarPao() {
         return new PaoFrances();
     }
 
     @Override
-    protected Queijo criarQueijo() {
+    public Queijo criarQueijo() {
         return new QueijoMussarela();
     }
 
     @Override
-    protected Presunto criarPresunto() {
+    public Presunto criarPresunto() {
         return new PresuntoPeru();
     }
 
     @Override
-    protected Ovo criarOvo() {
+    public Ovo criarOvo() {
         return new OvoGranja();
     }
 }

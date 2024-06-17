@@ -8,12 +8,13 @@ import sanduiche.Sanduiche;
 
 public class SanduicheBolaCheddarFrangoCapoeira extends Sanduiche {
     @Override
-    protected Pao criarPao() {
+    public Pao criarPao() {
         return new PaoBola();
     }
 
     @Override
-    protected Queijo criarQueijo() {
+    public Queijo criarQueijo() {
         return new QueijoCheddar();
     }
+
 }

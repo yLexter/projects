@@ -1,46 +1,40 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import sanduiche.Sanduiche;
-/*
+import sanduicheFactory.*;
+
 public class SanduicheFactoryTest {
 
     @Test
-    public void testSanduicheDePresuntoDePapaiLulinha() {
-        SanduicheFactory factory = new SanduicheDePresuntoDePapaiLulinha();
-        Sanduiche sanduiche = factory.criarSanduiche();
-
-        assertEquals("Pão Francês", sanduiche.getPao().getTipo());
-        assertEquals("Queijo Cheddar", sanduiche.getQueijo().getTipo());
-        assertEquals("Presunto de Frango", sanduiche.getPresunto().getTipo());
-        assertEquals("Ovo de Capoeira", sanduiche.getOvo().getTipo());
-        assertEquals("Tomate", sanduiche.getTomate().getTipo());
+    public void testSanduicheBolaCheddarFrangoCapoeira() {
+        Sanduiche sanduiche = new SanduicheBolaCheddarFrangoCapoeira();
+        assertEquals("Pão Bola", sanduiche.criarPao().getTipo());
+        assertEquals("Queijo Cheddar", sanduiche.criarQueijo().getTipo());
+        assertEquals("Presunto de Frango", sanduiche.criarPresunto().getTipo());
+        assertEquals("Ovo de Capoeira", sanduiche.criarOvo().getTipo());
+        assertEquals("Tomate", sanduiche.criarTomate().getTipo());
     }
 
     @Test
-    public void testSanduicheicheDeFrango() {
-        SanduicheFactory factory = new SanduicheicheDeFrango();
-        Sanduiche sanduiche = factory.criarSanduiche();
-
-        assertEquals("Pão Bola", sanduiche.getPao().getTipo());
-        assertEquals("Queijo Prato", sanduiche.getQueijo().getTipo());
-        assertEquals("Presunto de Frango", sanduiche.getPresunto().getTipo());
-        assertEquals("Ovo de Granja", sanduiche.getOvo().getTipo());
-        assertEquals("Tomate", sanduiche.getTomate().getTipo());
+    public void testSanduicheFrancesMussarelaPeruGranja() {
+        Sanduiche sanduiche = new SanduicheFrancesMussarelaPeruGranja();
+        assertEquals("Pão Francês", sanduiche.criarPao().getTipo());
+        assertEquals("Queijo Mussarela", sanduiche.criarQueijo().getTipo());
+        assertEquals("Presunto de Peru", sanduiche.criarPresunto().getTipo());
+        assertEquals("Ovo de Granja", sanduiche.criarOvo().getTipo());
+        assertEquals("Tomate", sanduiche.criarTomate().getTipo());
     }
 
     @Test
-    public void SanduicheDePresuntoDoChavesFactory() {
-        SanduicheFactory factory = new SanduicheDePresuntoDoChavesFactory();
-        Sanduiche sanduiche = factory.criarSanduiche();
-
-        assertEquals("Pão Francês", sanduiche.getPao().getTipo());
-        assertEquals("Queijo Mussarela", sanduiche.getQueijo().getTipo());
-        assertEquals("Presunto de Peru", sanduiche.getPresunto().getTipo());
-        assertEquals("Ovo de Granja", sanduiche.getOvo().getTipo());
-        assertEquals("Tomate", sanduiche.getTomate().getTipo());
+    public void testSanduicheIntegralCheddarPeruGranja() {
+        Sanduiche sanduiche = new SanduicheIntegralCheddarPeruGranja();
+        assertEquals("Pão Integral", sanduiche.criarPao().getTipo());
+        assertEquals("Queijo Cheddar", sanduiche.criarQueijo().getTipo());
+        assertEquals("Presunto de Peru", sanduiche.criarPresunto().getTipo());
+        assertEquals("Ovo de Granja", sanduiche.criarOvo().getTipo());
+        assertEquals("Tomate", sanduiche.criarTomate().getTipo());
     }
-
-}*/
-
+}

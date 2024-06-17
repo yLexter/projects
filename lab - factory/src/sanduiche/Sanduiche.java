@@ -6,23 +6,23 @@ import produtosConcretos.*;
 public class Sanduiche {
 
 
-    protected Pao criarPao() {
+    public Pao criarPao() {
         return new PaoIntegral();
     }
 
-    protected Queijo criarQueijo() {
+    public Queijo criarQueijo() {
         return new QueijoPrato();
     }
 
-    protected Presunto criarPresunto() {
+    public Presunto criarPresunto() {
         return new PresuntoFrango();
     }
 
-    protected Ovo criarOvo() {
+    public Ovo criarOvo() {
         return new OvoCapoeira();
     }
 
-    protected Tomate criarTomate() {
+    public Tomate criarTomate() {
         return new TomateComum();
     }
 
